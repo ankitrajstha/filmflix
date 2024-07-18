@@ -25,30 +25,36 @@ const Banner = () => {
   };
 
   return (
-    <section
-      className="relative w-full h-screen bg-cover bg-center flex items-center justify-center"
-      style={{
-        backgroundImage: `url(https://image.tmdb.org/t/p/original${movie?.backdrop_path})`,
-      }}
-    >
+    <section className="relative w-full h-screen">
+      <div className="absolute inset-0 bg-[#0D1924]"></div>
+      <div
+        className="relative w-full h-screen bg-cover bg-center flex items-center justify-center"
+        style={{
+          backgroundImage: `url(https://image.tmdb.org/t/p/original${movie?.backdrop_path})`,
+        }}
+      >
+        <div className="absolute inset-0 bg-black opacity-50"></div>
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="text-white px-4 max-w-full sm:max-w-[1043px]">
+            <h1 className="text-4xl sm:text-6xl mb-4 font-roboto">
+              {movie?.title}
+            </h1>
+            <div className="flex items-center gap-2 mb-4">
+              <img src="src/assets/Add.svg" alt="Add" />
+              <img src="src/assets/Play.svg" alt="Play" />
+            </div>
+            <p className="text-base sm:text-lg text-[#CCCCCC]">
+              {movie?.overview}
+            </p>
+          </div>
+        </div>
+      </div>
       <button
         className="absolute left-5 sm:left-10 top-1/2 transform -translate-y-1/2 px-2 sm:px-4 py-1 sm:py-2"
         onClick={handlePrev}
       >
         <img src="src/assets/left.svg" alt="Left" />
       </button>
-      <div className="absolute top-[204px] left-[174px] text-white px-2 max-w-full sm:max-w-[1043px]">
-        <h1 className="text-[90px] sm:text-5xl mb-2 sm:mb-4 font-roboto">
-          {movie?.title}
-        </h1>
-
-        <div className="flex items-center gap-1">
-          <img src="src/assets/Add.svg" alt="" />
-          <img src="src/assets/Play.svg" alt="" />
-        </div>
-        <p className="text-sm sm:text-lg text-[#CCCCCC]">{movie?.overview}</p>
-      </div>
-
       <button
         className="absolute right-5 sm:right-10 top-1/2 transform -translate-y-1/2 px-2 sm:px-4 py-1 sm:py-2"
         onClick={handleNext}
