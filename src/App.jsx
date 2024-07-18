@@ -1,4 +1,5 @@
 import Banner from "./components/Banner";
+import Carousel from "./components/Carousel";
 import Header from "./components/Header";
 
 const App = () => {
@@ -6,6 +7,7 @@ const App = () => {
     <div>
       <Header />
       <Banner />
+      <Carousel />
     </div>
   );
 };
