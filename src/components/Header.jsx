@@ -22,7 +22,12 @@ const Header = () => {
       <nav>
         <ul className="hidden lg:flex lg:gap-10">
           {navItems.map((navItem) => (
-            <li key={navItem.item} className="lg:text-[30px] lg:text-[#878787]">
+            <li
+              key={navItem.item}
+              className={`lg:text-[30px] lg:text-[#878787] ${
+                navItem.item === "Home" ? "lg:text-yellow-400" : ""
+              }`}
+            >
               {navItem.item}
             </li>
           ))}
