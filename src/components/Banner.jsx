@@ -9,6 +9,7 @@ const Banner = () => {
   useEffect(() => {
     dispatch(fetchMovies());
   }, [dispatch]);
+
   const movie = selectedMovie || movies[0];
 
   const handleNext = () => {
@@ -25,26 +26,34 @@ const Banner = () => {
 
   return (
     <section
-      className="relative w-full h-screen bg-cover bg-center"
+      className="relative w-full h-screen bg-cover bg-center flex items-center justify-center"
       style={{
         backgroundImage: `url(https://image.tmdb.org/t/p/original${movie?.backdrop_path})`,
       }}
     >
       <button
-        className="absolute top-1/2 left-5 -translate-y-1/2"
+        className="absolute left-5 sm:left-10 top-1/2 transform -translate-y-1/2 px-2 sm:px-4 py-1 sm:py-2"
         onClick={handlePrev}
       >
-        <img src="src/assets/left.svg" alt="Left Arrow" />
+        <img src="src/assets/left.svg" alt="Left" />
       </button>
-      <div className="absolute top-[205px] left-[174px] text-white px-2">
-        <h1 className="text-3xl sm:text-5xl mb-2 sm:mb-4">{movie?.title}</h1>
-        <p className="text-sm sm:text-lg">{movie?.overview}</p>
+      <div className="absolute top-[204px] left-[174px] text-white px-2 max-w-full sm:max-w-[1043px]">
+        <h1 className="text-[90px] sm:text-5xl mb-2 sm:mb-4 font-roboto">
+          {movie?.title}
+        </h1>
+
+        <div className="flex items-center gap-1">
+          <img src="src/assets/Add.svg" alt="" />
+          <img src="src/assets/Play.svg" alt="" />
+        </div>
+        <p className="text-sm sm:text-lg text-[#CCCCCC]">{movie?.overview}</p>
       </div>
+
       <button
-        className="absolute top-1/2 right-5 -translate-y-1/2"
+        className="absolute right-5 sm:right-10 top-1/2 transform -translate-y-1/2 px-2 sm:px-4 py-1 sm:py-2"
         onClick={handleNext}
       >
-        <img src="src/assets/right.svg" alt="Right Arrow" />
+        <img src="src/assets/right.svg" alt="Right" />
       </button>
     </section>
   );
